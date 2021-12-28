@@ -1,6 +1,6 @@
 if (typeof requestAnimationFrame != 'function') {
     ['moz', 'webkit', 'ms'].some(function (p) {
-        let f = this[p + 'requestAnimationFrame']
+        let f = this[p + 'RequestAnimationFrame']
         return typeof f == 'function' ? (requestAnimationFrame = f) : false
     }) || (requestAnimationFrame = function (f){
         return setTimeout(f, 0)
@@ -9,9 +9,9 @@ if (typeof requestAnimationFrame != 'function') {
 
 (function (canvas) {
 
-    let thetaEnd = 17 * Math.PI
+    let thetaEnd = 17 * Math.PI,
         lineSpacing = 1/25,
-        lineLenght = 0.3 * lineSpacing,
+        lineLength = 0.3 * lineSpacing,
         rate = 1 / (5* Math.PI),
         factor = rate / 2.5,
         cycle = 250,
@@ -52,7 +52,7 @@ if (typeof requestAnimationFrame != 'function') {
                 i = 0
                 requestAnimationFrame(paint)
                 c.clearRect(0, 0, cSize, cSize)
-                for (; i < scene.lenght; ++i)
+                for (; i < scene.length; ++i)
                 scene[i].paint(offset)
         }
         
@@ -73,7 +73,7 @@ if (typeof requestAnimationFrame != 'function') {
             this.color =  options.color || '255,255,255'
             this.theta0 = options.theta0 || 0
             this.lineSpacing = options.lineSpacing || lineSpacing
-            this.lineLenght = options.lineLenght || lineLenght
+            this.lineLength = options.lineLength || lineLength
             this.rate = options.rate || rate
             this.factor = options.factor || factor
             this.cache = {}
@@ -81,7 +81,7 @@ if (typeof requestAnimationFrame != 'function') {
 
         Coil.prototype.paint = function (offset){
             let cache = this.cache[offset] || (this.cache[offset] = this.compute(offset))
-        }
+        
 
         cache[0].forEach(function (b){
             c.beginPath()
@@ -96,8 +96,9 @@ if (typeof requestAnimationFrame != 'function') {
             c.moveTo(b[0], b[1])
             c.lineTo(b[2], b[3])
         })
-            c.strokeStyle = 'rgba(' + this.color + ')'
+            c.strokeStyle = 'rgb(' + this.color + ')'
             c.stroke()
+        }
 
     Coil.prototype.compute = function (offset) {
             let theta = this.thetaDif(0, offset * this.lineSpacing),
@@ -106,14 +107,14 @@ if (typeof requestAnimationFrame != 'function') {
                 i = 0
             for (; theta < thetaEnd; theta += this.thetaDif(theta, this.lineSpacing)) {
                 begin = this.getPoint(theta)
-                end = this.getPoint(theta + this.thetaDif(theta, this.lineLenght))
-                this.line( begin, end, cache0, cache1)
+                end = this.getPoint(theta + this.thetaDif(theta, this.lineLength))
+                this.line(begin, end, cache0, cache1)
             }
             return [cache0, cache1]
     }
 
-    Coil.prototype.thetaDif = function (theta, lenght) {
-        return lenght / Math.sqrt(this.rate * this.rate + this.factor * this.factor * theta * theta)
+    Coil.prototype.thetaDif = function (theta, length) {
+        return length / Math.sqrt(this.rate * this.rate + this.factor * this.factor * theta * theta)
     }
 
     Coil.prototype.getPoint = function (theta) {
@@ -123,7 +124,7 @@ if (typeof requestAnimationFrame != 'function') {
     }
 
     Coil.prototype.line = function (begin, end, cache0, cache1) {
-        let opacity = 0.24 + 0.76 * pow3(clamp(0.96 + 5.56 * begin[2], 0 , 1))
+        let opacity = 0.24 + 0.76 * pow3(clamp(0.96 + 5.56 * begin[2], 0, 1))
         begin = project(begin)
         end = project(end)
         if (opacity == 1) cache1.push([begin[0], begin[1], end[0], end[1]])
