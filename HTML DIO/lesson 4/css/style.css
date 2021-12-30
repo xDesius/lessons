@@ -1,0 +1,48 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ddcfc5;
+}
+.page{
+    width: 65%;
+    height: 70%;
+    background-color: #fff;
+    padding: 55px;
+    padding-top: 15px ;
+    padding-bottom: 30px;
+}
+.title-text{
+    font-size: 3em;
+    font-weight: 600;
+}
+sup{
+    color: blue;
+}
+.text{
+    font-size: 1.4em;
+    line-height: 35px;
+    letter-spacing: 0.4px;
+}
+.text-block{
+    margin-top: 80px;
+}
+.mb{
+    margin-bottom: 35px;
+}
+
+.text-subblock{
+    margin-top: 35px ;
+    border-top: 1px solid grey;
+}
+.smaller{
+    font-size: 1em;
+}
