@@ -1,0 +1,194 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.wrapper{
+    width: 100%;
+    overflow: hidden;
+
+}
+.container {
+    width: 75%;
+}
+a{
+    text-decoration: none;
+    text-transform: none;
+    color: black;
+
+}
+li{
+    list-style: none;
+}
+.nav-items{
+    width: 80%;
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.nav{
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.about{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 2rem;
+    
+}
+.about-left{
+    
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
+    
+}
+.about-item{
+    display: flex;
+    padding: 4rem;
+    justify-content: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 1rem;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 13px 13px 51px 0px rgb(10 51 80 / 16%);
+    margin-bottom: 1rem;
+    width: 18rem;
+    height: 18rem;
+}
+.about-items{
+    display: flex;
+    
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+.about-item-xltext{
+    font-size: 60px;
+    background: linear-gradient(to right, #FF4969, #FC9D44 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.3em;
+    letter-spacing: -2px;
+    
+}
+.about-item-smtext{
+    font-size: 18px;
+    color: #3A3564;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.slider{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: row;
+}
+.slider-items{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.slider-items__textxl{
+    font-size: 76px;
+    background: linear-gradient(to right, #FF4969, #FC9D44 );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    line-height: 1.15em;
+    letter-spacing: -2px;
+    margin-bottom: 0.5rem;
+
+}
+.slider-items__textsm{
+    font-size: 18px;
+    color: #3A3564;
+}
+.slider-items-forms{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-top: 1rem;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 17px 17px 46px 0 rgb(17 69 111 / 11%);
+}
+.slider-item__button{
+    background-color: #3b3663;
+    padding: 1rem;
+    border-radius: 5px ;
+    border: none;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+.slider-item__input{
+    color: #696687;
+    border: none;
+    outline: none;
+    font-size: 0.78em;
+    line-height: 1.5;
+    padding: 0.5rem;
+}
+.slider-item__text{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+
+}
+.slider-items-info{
+    margin-top: 3rem;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    color: #3B3564;
+}
+.slider-item__text-sm{
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+.slider-item__text-xl{
+    color: inherit;
+    font-weight: 700;
+    line-height: 0.93em;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+.slider-item__ico-img{
+    width: 35px;
+    height: 40px;
+}
+.slider-item__ico{
+    margin-right: 0.4rem;
+}
+.slider-item__text-xl__link{
+    color: inherit;
+    
+}
+.slider-item__text-xl:hover{
+    transition: all .4s ease-in-out;
+    color: orange;
+    
+}
