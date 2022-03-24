@@ -71,9 +71,19 @@ let products = [
     
     }
 
-    function delCart() {
+    function delCart(id) {
         let cartEl = document.getElementById('cartItem')
-        cartEl.remove()
+        cartEl.remove(id)
+        localStorage.removeItem("cart")
+        if(!localStorage.cart)
+        {
+            let cart = {
+                id: 0,
+                user: 0,
+                products:[]
+            }
+            localStorage.cart = JSON.stringify(cart);
+        }
     }
 
 
@@ -84,11 +94,11 @@ let products = [
             productId: id,
             amount: 1
         }
-    
+
         let cart = JSON.parse(localStorage.getItem ("cart"));
         let flag = false;
-        
-        
+
+
         
         for(product of cart.products)
         {
@@ -96,10 +106,12 @@ let products = [
                 
                 flag = true
                 
-                if (product.amount = 1){
-                    
-                    delCart()
-                    flag = true
+                if (product.amount == 1){
+
+                    product.amount == 1
+                    // delCart()
+                    // flag = true
+
                 }
                 else {
                     product.amount--
@@ -107,11 +119,12 @@ let products = [
                 
             }
             
-        }``
-        if (flag == false)
-        {
-            cart.products.push(item);
         }
+
+        // if (flag == false)
+        // {
+        //     cart.products.push(item);
+        // }
         
     
         cart.products.push(product);
@@ -178,6 +191,7 @@ let products = [
                         <td><button id="${product.id}" onclick="removeFromCart(id)" type="button" > - </button></td>
                         <td>${cartProduct.amount}</td>
                         <td><button id="${product.id}" onclick="addToCart(id)" type="button" > + </button></td>
+                        <td><button id="${product.id}" onclick="delCart(id)" type="button" > Delete </button></td>
                     </tr>
                     `)
                 }
