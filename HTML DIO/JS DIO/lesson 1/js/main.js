@@ -61,7 +61,7 @@ let products = [
         }
     
     
-        cart.products.push(product);
+        // cart.products.push(product);
         localStorage.cart = JSON.stringify(cart);
         cartPresenter();
     
@@ -71,63 +71,66 @@ let products = [
     
     }
 
-    function delCart(id) {
-        let cartEl = document.getElementById('cartItem')
-        cartEl.remove(id)
-        localStorage.removeItem("cart")
-        if(!localStorage.cart)
-        {
-            let cart = {
-                id: 0,
-                user: 0,
-                products:[]
-            }
-            localStorage.cart = JSON.stringify(cart);
-        }
-    }
+    // function delCart() {
+    //     let cartEl = document.getElementById(`${product.id}`)
+    //     cartEl.remove()
+    //     localStorage.removeItem("cart")
+    //     if(!localStorage.cart)
+    //     {
+    //         let cart = {
+    //             id: 0,
+    //             user: 0,
+    //             products:[]
+    //         }
+    //         localStorage.cart = JSON.stringify(cart);
+    //     }
+    // }
 
 
     function removeFromCart(id)
     {
-        
         let item = {
             productId: id,
             amount: 1
         }
+        
 
         let cart = JSON.parse(localStorage.getItem ("cart"));
         let flag = false;
+        prodId = 0;
 
 
         
         for(product of cart.products)
         {
-            if (item.productId == product.productId) {
-                
+            if (item.productId == product.productId && product.amount > 1) {
+                product.amount--
                 flag = true
                 
-                if (product.amount == 1){
-
-                    product.amount == 1
-                    // delCart()
-                    // flag = true
-
+            }   else if (item.productId == product.productId && product.amount == 1){
+                delete cart.products[prodId]
+                let temp = []
+                for(product of cart.products)
+                {
+                    if (product != null)
+                    {
+                        temp.push(product)
+                    }
                 }
-                else {
-                    product.amount--
-                }
-                
+                cart.products = temp
             }
-            
+            prodId++
         }
 
         // if (flag == false)
-        // {
-        //     cart.products.push(item);
+        // {   
+        //     let pid = `product ${product.productId}`
+        //     let productElement = document.getElementById('cart')
+            
         // }
         
     
-        cart.products.push(product);
+        // cart.products.push(product);
         localStorage.cart = JSON.stringify(cart);
         cartPresenter();
     }
@@ -184,36 +187,27 @@ let products = [
                 if (cartProduct.productId == product.id)
                 {
                     cartElement.insertAdjacentHTML('beforeend',
-                    `<tr id="cartItem">
+                    `<tr id="product${product.id}">
                         <td>${product.id}</td>
                         <td><div class="img"><img src="${product.img}" alt="${product.name}"></div></td>
                         <td>${product.name}</td>
                         <td><button id="${product.id}" onclick="removeFromCart(id)" type="button" > - </button></td>
                         <td>${cartProduct.amount}</td>
                         <td><button id="${product.id}" onclick="addToCart(id)" type="button" > + </button></td>
-                        <td><button id="${product.id}" onclick="delCart(id)" type="button" > Delete </button></td>
+                        
                     </tr>
                     `)
-                }
+                 }
             }
         }
     }
 
 
-        function consolePrint(products) {
-            for(product of products) {
-                console.log(product.name)
-            }
-        }
-        consolePrint(products);
-        presenter(products);
-        // cartPresenter(products);
-        // <div class="item">
-                //     <div class="img">
-                //         <img src="${product.img}" alt="${product.name}">
-                //     </div>
-                //     <h1>${product.name}</h1>
-                //     <p>${product.description}</p>
-                //     <span>${product.price} руб.</span>
-                //     <button id="${product.id}" onclick="addToCart(id)" type="button" >Купить</button>
-                // </div> 
+function consolePrint(products) {
+    for(product of products) {
+        console.log(product.name)
+    }
+}
+consolePrint(products);
+presenter(products);
+        
