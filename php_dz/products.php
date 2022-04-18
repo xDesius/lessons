@@ -21,7 +21,7 @@
         ?>
         <div class="product">
             <div class="img">
-                <img src="<?=$item->img?>">
+                <img src="<?=$item->img?>" alt="<?=$item->name?>">
             </div>
             <div class="product__info">
                 <h1>
@@ -31,7 +31,7 @@
                     <?=$item->description?>
                 </p>
                 <p>
-                    <?=$item->price?>
+                    <?=$item->price?> рублей
                 </p>
             </div>
         </div>

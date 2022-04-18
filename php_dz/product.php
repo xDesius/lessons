@@ -14,7 +14,8 @@ class Product{
 }
 
 $products = [
-    new Product('Арбуз', 'Спелый вкусный арбуз', rand(1500,5000), 'https://avatars.mds.yandex.net/get-zen_doc/5257032/pub_60eb14bca83d1f6b7306fa3c_60f03e86584b027c4da2781f/scale_1200'),
+    new Product('Арбуз', 'Спелый вкусный арбуз', rand(1500,5000), 'https://avatars.mds.yandex.net/i?id=a9023b8ddfab04ab61f966c7ba600c82-5233588-images-thumbs&n=13&exp=1'),
     new Product('Апельсин', 'Спелый вкусный апельсин', rand(1500,5000), 'https://funforkids.ru/pictures/orange/orange034.png'),
     new Product('Яблоко', 'Спелое вкусное яблоко', rand(1500,5000), 'https://avatars.mds.yandex.net/i?id=c48ae350238da4cdb758dd1f1b7b0c9d-5889273-images-thumbs&n=13&exp=1'),
+    new Product('Дыня', 'Спелая вкусная дыня', rand(1500,5000), 'https://avatars.mds.yandex.net/i?id=068533851d3d836b282d20a83839f1ca-5875996-images-thumbs&n=13&exp=1')
 ];
