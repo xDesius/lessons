@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+
+}
+body,html{
+    height: 100%;
+    font-size: 16px;
+    font-family: Verdana;
+
+}
+.wrapper{
+    min-height: 100%;
+    overflow: hidden;
+}
+.products{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1.2rem;
+    height: 20rem;
+}
+.img{
+    max-width: 15rem;
+
+}
+.img > img{
+    max-width: 100%;
+}
